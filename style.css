@@ -1,0 +1,1064 @@
+/*
+Theme Name: BK Media Fresh Build
+Author: Ettalibi Assia
+Description: Creative Media Agency Theme
+Version: 2.0
+*/
+/* Layout Fixes */
+html {
+    scroll-behavior: smooth; /* This makes the page "slide" down to the form instead of jumping */
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+:root {
+    --primary: #5E33F4ff; /* Electric Indigo */
+    --accent: #8078F7ff;  /* Medium Slate Blue */
+    --light-accent: #8698FDff; /* Wisteria Blue */
+    --bg-light: #EDEDEFff; /* Platinum */
+    --bg-grey: #D9D8DCff;  /* Alabaster */
+    --black: #000000ff;
+    --white: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--black);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1, h2, h3 { font-family: 'Poppins', sans-serif; font-weight: 800; text-transform: uppercase; }
+
+/* Navigation */
+header {
+    background-color:  #000000;
+    padding: 10px 5%; 
+    height: 90px;    
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;           
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+header nav {
+    display: flex;
+    align-items: center;
+}
+/* Remove bullets and default padding from the WordPress menu */
+header nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center; /* Centers the text links with the buttons */
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+   
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    line-height: 1;
+}
+
+header nav ul li a:hover {
+    color: var(--light-accent);
+}
+/* Styling the Active Page Link */
+header nav ul li.current-menu-item a {
+    color: var(--light-accent); /* Give it a different color */
+    border-bottom: 2px solid var(--primary); /* Add a line underneath */
+    padding-bottom: 5px;
+}
+
+
+/* Style the LAST item (Contact) as an Indigo Button */
+header nav ul li:last-child a {
+    background-color: var(--primary);
+    padding: 10px 22px;
+    border-radius: 5px;
+    color: white !important;
+}
+
+header nav ul li:last-child a:hover {
+    background-color: var(--grey);
+    color: var(--primary) !important;
+}
+/* If the current page is "Contact", keep the button style but make it glow */
+header nav ul li.current-menu-item:last-child a {
+    box-shadow: 0 0 20px rgba(94, 51, 244, 0.5);
+    background-color: var(--grey);
+    color: var(--primary) !important;
+}
+/* 1. Target the container */
+.logo {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. Target the actual image inside the link */
+.logo img, .custom-logo-link img {
+    height: 60px;   
+    width: auto;    
+    display: block;
+    transition: 0.3s ease;
+}
+
+/* 3. Add a hover effect for a professional touch */
+.custom-logo-link:hover img {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+/* Responsive: If the screen is small, stack the menu (Simple version) */
+@media (max-width: 992px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    header nav ul {
+        gap: 15px;
+    }
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.site-main {
+    flex: 1; /* This pushes the footer down */
+    padding: 60px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+}
+
+
+.logo { color: var(--white); font-size: 1.5rem; text-decoration: none; }
+.logo span { color: var(--primary); }
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #000000 0%, #5E33F4 100%);
+    color: var(--white);
+    padding: 60px 5% 100px 5%;
+    text-align: center;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%); 
+     min-height: 85vh; 
+    display: flex;
+    align-items: center;
+}
+.hero h1 {
+    font-size: 4rem; /* Big, bold headline */
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+}
+.hero-content h1 {
+    font-size: 5.5rem; 
+    line-height: 0.9;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: var(--light-accent); /* Highlight "Impact" */
+}
+
+.hero p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+.hero-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    text-align: left; 
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+/* The Creative Photo Frame */
+.hero-image {
+    position: relative;
+    flex: 1;
+}
+
+.image-frame {
+    position: relative;
+    width: 400px;
+    height: 480px;
+    margin: 0 auto;
+    z-index: 2;
+}
+
+.image-frame img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    object-fit: cover;
+    border-radius: 30px;
+    z-index: 3;
+    filter: grayscale(20%); /* Artistic touch */
+    transition: 0.5s;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+.image-frame:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.02);
+}
+
+/* The Indigo "Glow" behind the photo */
+.image-frame::before {
+    content: '';
+    position: absolute;
+    top: -25px;
+    left: -25px;
+    width: 100%;
+    height: 100%;
+    background: var(--accent);
+    border-radius: 30px;
+    z-index: 1;
+    opacity: 0.6;
+}
+
+.experience-badge {
+    position: absolute;
+    bottom: -5px;
+    right: -20px;
+    font-size: 0.9rem;
+    background: var(--white);
+    color: var(--black);
+    padding: 15px 25px;
+    border-radius: 15px;
+    font-weight: 800;
+    box-shadow:0 15px 40px rgba(0,0,0,0.15);
+    z-index: 10;
+    border: 1px solid rgba(0,0,0,0.05); 
+    display: flex;
+    align-items: center;
+}
+
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: 0.3s;
+    margin-top: 20px;
+}
+
+.btn:hover { background: var(--accent); transform: translateY(-3px); }
+
+/* --- CONTENT AREA (The "Bienvenue" text) --- */
+.entry-content {
+    text-align: center;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: #666;
+    max-width: 800px;
+    margin: 60px auto;
+}
+/* Grid for Services (SEO Friendly) */
+section {
+    padding: 120px 0; /* More space makes it look "Premium" */
+}
+/* --- SERVICES SECTION --- */
+/* --- SERVICES SECTION --- */
+.services-section {
+    padding: 140px 0;
+    background-color: #fff;
+}
+
+.section-header {
+    margin-bottom: 80px;
+}
+
+.subtitle {
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.section-title {
+    font-size: 3.5rem;
+    color: var(--black);
+    text-align: left; /* Alignment for a modern look */
+    margin: 0;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.service-card {
+    background: #fff;
+    padding: 60px 40px;
+    border-radius: 4px;
+    border: 1px solid #f0f0f0;
+    transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden; /* Keeps the number inside the box */
+}
+.contact-section {
+    background: rgb(68, 38, 139);
+    padding: 120px 0;
+    color: white;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+}
+.contact-info h2 {
+    font-size: 3.5rem;
+    line-height:rgba(0,0,0,0.4) 1.1;
+    margin-bottom: 40px;
+}
+/* --- CONTACT ICONS STYLE --- */
+.direct-contact {
+    margin-top: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.contact-item i {
+    color: var(--primary);
+    font-size: 1.4rem;
+    width: 25px;
+    text-align: center;
+}
+
+/* La boîte du devis personnalisé */
+.devis-box {
+    background: rgba(94, 51, 244, 0.05); /* Un léger voile indigo */
+    padding: 30px;
+    border-left: 4px solid var(--primary);
+    margin-bottom: 40px;
+    border-radius: 0 15px 15px 0;
+}
+
+.devis-box h3 {
+    color: var(--light-accent);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    text-transform: none; /* Plus humain, moins agressif */
+}
+
+.devis-box p {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+.direct-contact p {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    opacity: 0.6;
+}
+
+
+.contact-form-container input, 
+.contact-form-container textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(0,0,0,0.1) !important;
+    padding: 15px 0;
+    color: var(--black) !important;
+    margin-bottom: 30px;
+    outline: none;
+}
+.contact-form-container input::placeholder,
+.contact-form-container textarea::placeholder {
+    color: white !important; 
+}
+
+.contact-form-container input:focus {
+    border-bottom-color: var(--primary);
+}
+
+.wpcf7-submit {
+    /* 1. Use your strong Electric Indigo */
+    background-color: #EDEDEFff !important;
+    color: white !important;
+    
+    /* 2. Professional Padding & Shape */
+    padding: 18px 45px !important;
+    border: none;
+    border-radius: 8px; /* Slightly rounded for a modern feel */
+    
+    /* 3. Typography */
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    
+    /* 4. Layout */
+    display: inline-block;
+    cursor: pointer;
+    width: auto !important; /* Don't make it full width, it's too aggressive */
+    min-width: 250px;
+    
+    /* 5. The "Secret Sauce" (Shadow & Transition) */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(94, 51, 244, 0.3); /* Indigo glow */
+}
+
+
+.wpcf7-submit:hover {
+    background-color: var(--black) !important; /* Switch to black on hover */
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    color: white !important;
+}
+
+/* THE BLUE NUMBER - Professional Watermark Style */
+ 
+/* .service-card .service-number {
+    font-size: 6rem; 
+    font-weight: 900;
+    color: var(--primary); 
+    opacity: 0.08; 
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    line-height: 1;
+    transition: 0.5s ease;
+    z-index: 1;
+} */
+
+/* .service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--black);
+    position: relative;
+    z-index: 2; 
+} */
+
+/* .service-card p {
+    color: #666;
+    font-size: 1rem;
+    position: relative;
+    z-index: 2;
+} */
+
+/* --- HOVER EFFECTS --- */
+/* .service-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 40px 80px rgba(94, 51, 244, 0.1);
+    border-color: var(--primary);
+} */
+
+/* The Left-Border Animation */
+/* .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 5px; height: 0;
+    background: var(--primary);
+    transition: 0.4s ease;
+    z-index: 3;
+}
+
+.service-card:hover::before {
+    height: 100%;
+} */
+
+/* 
+.service-card:hover .service-number {
+    opacity: 0.15;
+    transform: scale(1.1) rotate(-5deg);
+} */
+
+/* --- SERVICES VISUAL GRID --- */
+
+.services-visual-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+    gap: 20px;
+}
+
+.service-visual-card {
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+/* Effet de zoom sur l'image au survol */
+.service-visual-card:hover {
+    transform: scale(0.98);
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(94, 51, 244, 0.8));
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: 0.4s;
+}
+
+.service-visual-card:hover .card-overlay {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0, 0, 0, 0.9));
+}
+.card-no {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--light-accent);
+    margin-bottom: 10px;
+}
+
+.card-overlay h3 {
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.card-overlay p {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.4s;
+}
+.service-visual-card:hover p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Faire en sorte que le 7ème service prenne toute la largeur */
+.large-card {
+    grid-column: span 3;
+    height: 300px;
+}
+@media (max-width: 992px) {
+    .services-visual-grid { grid-template-columns: 1fr 1fr; }
+    .large-card { grid-column: span 2; }
+}
+/* --- ABOUT TEASER --- */
+
+.about-teaser {
+    /* padding: 100px 0; */
+    background-color: var(--bg-light);
+    padding: 140px 0;
+    overflow: hidden;
+}
+
+.about-grid {
+   display: grid;
+    grid-template-columns: 1fr 0.9fr;
+    align-items: center;
+    gap: 100px;
+}
+.about-image-wrapper {
+    position: relative;
+    padding: 20px;
+}
+
+.about-image-wrapper img {
+    width: 100%;
+    height: auto;
+    border-radius: 0 80px 0 80px; /* Matching your earlier creative theme */
+    z-index: 2;
+    position: relative;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+    display: block;
+}
+/* THE INDIGO ACCENT (The "Halo") */
+.image-accent-box {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 80%;
+    height: 80%;
+    background-color: var(--primary);
+    border-radius: 0 80px 0 80px;
+    z-index: 1;
+    opacity: 0.2; /* Subtle Indigo glow */
+}
+
+.floating-label {
+    position: absolute;
+    top: 50%;
+    left: -40px;
+    transform: rotate(-90deg);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: var(--primary);
+    font-size: 0.7rem;
+    opacity: 0.5;
+}
+
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    color: var(--black);
+}
+
+.about-text-content h2 span {
+    color: var(--primary);
+    display: block; /* Moves "the lens" to a new line for impact */
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+    max-width: 600px;
+}
+
+.about-text-content p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 40px;
+    max-width: 500px;
+}
+/* Features List (Adds "Pro" detail) */
+.about-features {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.feature-item {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--black);
+    padding-left: 15px;
+    border-left: 3px solid var(--primary);
+}
+
+/* Style du bouton Outline */
+.btn-outline {
+    display: inline-block;
+    padding: 12px 30px;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: white;
+}
+/* THE BUTTON (Modern Version) */
+.btn-main {
+    display: inline-block;
+    padding: 15px 35px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 4px;
+    transition: 0.3s;
+    box-shadow: 0 10px 20px rgba(94, 51, 244, 0.2);
+}
+
+.btn-main:hover {
+    background: var(--black);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+/* --- PORTFOLIO TEASER --- */
+.portfolio-teaser {
+    background: var(--black);
+    color: white;
+    padding: 120px 5%; /* Top and Bottom padding */
+    border-bottom: 1px solid rgba(255,255,255,0.1); /* Subtle line to separate from footer */
+}
+
+.portfolio-teaser h2 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.portfolio-item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+.portfolio-item .work-info {
+    padding: 20px;
+    background: #000;
+    text-align: left;
+}
+.portfolio-item h4 { margin: 0; color: #fff; }
+.portfolio-item span { color: var(--accent); font-size: 0.8rem; }
+
+.portfolio-item:hover .work-thumb {
+    transform: scale(1.05);
+    filter: brightness(0.6);
+}
+.work-thumb { transition: 0.5s; }
+
+/* .portfolio-teaser p {
+    color: var(--light-accent);
+    margin-bottom: 50px;
+    font-size: 1.2rem;
+} */
+
+/* Footer Styling */
+
+/* --- THE PROFESSIONAL FOOTER --- */
+
+.main-footer {
+    background-color: rgb(178, 177, 182); /* Deep black-indigo */
+    color: var(--alabaster-grey);
+    padding: 100px 0 0 0; /* Large top padding */
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; /* First column is wider */
+    gap: 60px;
+    padding-bottom: 80px;
+}
+
+.footer-column h5 {
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+    font-weight: 800;
+}
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    background: var(--primary);
+    transform: translateY(-5px);
+}
+
+/* Brand Column Styling */
+.brand-col .logo {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.brand-col p {
+    max-width: 300px;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    opacity: 0.7;
+}
+
+/* REMOVE BULLETS & STYLE LINKS */
+.footer-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-menu li {
+    margin-bottom: 15px;
+}
+
+.footer-menu li a {
+    text-decoration: none;
+    color: var(--alabaster-grey);
+    opacity: 0.6;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
+
+.footer-menu li a:hover {
+    opacity: 1;
+    color: var(--primary);
+    padding-left: 5px; /* Subtle movement effect */
+}
+
+/* Contact Column */
+.contact-col p {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    opacity: 0.7;
+}
+
+.contact-col span {
+    color: var(--white);
+}
+
+.footer-cta {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 1px solid var(--primary);
+    padding-bottom: 5px;
+    transition: 0.3s;
+}
+
+.footer-cta:hover {
+    color: var(--white);
+    border-color: var(--white);
+}
+
+/* Footer Bottom Bar */
+.footer-bottom {
+    background-color: #ece6e67b;
+    padding: 30px 0;
+    border-top: 1px solid rgba(255,255,255,0.03);
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.8rem;
+    opacity: 0.4;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 2. Style each link item */
+.footer-links li {
+    margin-bottom: 12px; /* Space between links */
+}
+
+/* 3. Typography for the links */
+.footer-links li a {
+    text-decoration: none;
+    color: #a0a0a0; /* Subtle grey like high-end sites */
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* 4. Hover effect (The "Slide" effect) */
+.footer-links li a:hover {
+    color: #7042f8; /* Your brand purple */
+    transform: translateX(8px);
+}
+
+/* 5. Arabic Support: Slide to the left instead of right */
+html[dir="rtl"] .footer-links li a:hover {
+    transform: translateX(-8px);
+}
+
+/* 6. Style the title (Optional) */
+.footer-title {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Social Links Placeholders */
+.social-links {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+.social-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 0.8rem;
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.social-links a:hover { opacity: 1; color: var(--primary); }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    .brand-col p { margin: 0 auto; }
+    .social-links { justify-content: center; }
+}
+.page-title {
+    margin-bottom: 30px;
+    color: var(--primary);
+    border-left: 5px solid var(--primary);
+    padding-left: 15px;
+}
+
+/* RTL Support Placeholder */
+[dir="rtl"] .services-visual-grid {
+    direction: rtl;
+}
+
+[dir="rtl"] .card-overlay {
+    text-align: right;
+    align-items: flex-end; /* Flips the text to the right for Arabic */
+}
+
+/* --- ARABIC (RTL) ADJUSTMENTS --- */
+[dir="rtl"] body {
+    font-family: 'Cairo', 'Almarai', sans-serif; /* Professional Arabic Fonts */
+    text-align: right;
+}
+
+[dir="rtl"] header, 
+[dir="rtl"] .hero-flex, 
+[dir="rtl"] .about-grid, 
+[dir="rtl"] .footer-grid,
+[dir="rtl"] .contact-grid {
+    flex-direction: row-reverse; /* Flips the columns */
+}
+[dir="rtl"] header nav {
+    margin-right: auto; /* Pushes the menu to the LEFT */
+    margin-left: 0;
+}
+[dir="rtl"] header nav ul {
+    flex-direction: row; /* Keeps items in a line */
+    gap: 25px;
+}
+/* Fix the button styling for RTL */
+[dir="rtl"] header nav ul li:last-child a {
+    /* Ensure the button style stays on the Contact link */
+    background-color: var(--primary);
+    margin-right: 20px; /* Space between the menu and the button */
+    margin-left: 0;
+}
+[dir="rtl"] .logo {
+    margin-left: 40px; /* Space after the logo on the right */
+    margin-right: 0;
+}
+
+[dir="rtl"] .service-card {
+    text-align: right;
+    border-left: none;
+    border-right: 4px solid transparent; /* Flips the accent border */
+}
+
+[dir="rtl"] .service-card:hover {
+    border-right: 4px solid var(--primary);
+}
+
+[dir="rtl"] .image-frame::before {
+    left: auto;
+    right: -25px; /* Flips the indigo halo behind Bilal's photo */
+}
+/* .lang-switcher ul {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+}
+.lang-switcher img {
+    border-radius: 2px;
+    width: 20px;
+} */
+
+/* ARABIC FORM ADJUSTMENTS */
+[dir="rtl"] .contact-form-container {
+    text-align: right;
+}
+
+[dir="rtl"] .wpcf7-submit {
+    float: right; 
+    font-family: 'Cairo', sans-serif; 
+}
+
+
+[dir="rtl"] .wpcf7-form-control {
+    text-align: right;
+    direction: rtl;
+}
+
+[dir="rtl"] .work-info h4 {
+    font-size: 1.1rem; /* On réduit un peu la taille si le texte arabe est trop long */
+    font-family: 'Cairo', sans-serif;
+}
+.lang-switcher {
+    margin-left: 20px;
+}
+[dir="rtl"] .lang-switcher {
+    margin-left: 0;
+    margin-right: 20px;
+}
