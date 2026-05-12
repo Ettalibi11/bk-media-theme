@@ -17,11 +17,17 @@
         }
         ?>
     </div>
-    <nav>
-        <!-- This will show the menu you create in WordPress Admin -->
-        <?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-        <div class="lang-switcher">
-            <?php pll_the_languages(array('show_flags'=>1,'show_names'=>0)); ?>
+   <div class="header-right">
+        <div class="header-search">
+            <?php get_search_form(); ?> <!-- This calls your searchform.php -->
         </div>
-    </nav>
+        
+        <nav>
+            <!-- This will show the menu you create in WordPress Admin -->
+            <?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+        </nav>    
+         <div class="lang-switcher">
+                <?php pll_the_languages(array('show_flags'=>1,'show_names'=>0)); ?>
+        </div>
+    </div>
 </header>

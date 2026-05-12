@@ -27,7 +27,7 @@
             <!-- Column 3: Contact -->
             <div class="footer-column contact-col">
                 <h5><?php pll_e('Footer Contact Title'); ?></h5>
-                <p><?php pll_e('Footer Contact mail'); ?> <span>contact@bkmedia.com</span></p>
+                <p><?php pll_e('Footer Contact mail'); ?> <span>bkmediaagency2025@gmail.com</span></p>
                 <p><?php pll_e('Footer Contact city'); ?></p>
                 <a href="#contact" class="footer-cta"><?php pll_e('Footer Work With Us'); ?>&rarr;</a>
             </div>
