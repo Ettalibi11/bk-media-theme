@@ -4,7 +4,7 @@
             <!-- Column 1: Brand -->
             <div class="footer-column brand-col">
                 <a href="<?php echo home_url(); ?>" class="logo">BK<span>MEDIA</span></a>
-                <p>Creating cinematic impact through modern content and storytelling. Based in Morocco, working globally.</p>
+                <p><?php pll_e('Footer text'); ?></p>
                 <div class="social-links">
                     <a href="#" style="color:white; margin-right:15px; font-size:1.2rem;"><i class="fab fa-instagram"></i></a>
                     <a href="#" style="color:white; margin-right:15px; font-size:1.2rem;"><i class="fab fa-linkedin"></i></a>

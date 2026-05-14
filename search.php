@@ -3,64 +3,51 @@
 <section class="search-results-page">
     <div class="container">
         
-        <header class="page-header-search">
-            <span><?php pll_e('Search Results for:'); ?></span>
-            <h1><?php echo get_search_query(); ?></h1>
+        <?php 
+        global $wpdb; 
+        $search_query = get_search_query();
+        $current_lang = pll_current_language();
+
+        // 1. FETCH DATA FROM DATABASE
+        $results = $wpdb->get_results( $wpdb->prepare("
+            SELECT * FROM bk_master_data 
+            WHERE (title LIKE %s OR description LIKE %s)
+            AND lang = %s
+            ORDER BY title ASC
+        ", '%' . $wpdb->esc_like($search_query) . '%', '%' . $wpdb->esc_like($search_query) . '%', $current_lang) );
+
+        // 2. CALCULATE COUNT
+        $count = count($results);
+        ?>
+
+        <!-- HEADER: Shows the number of results found -->
+        <header class="search-header-pro">
+            <span class="results-count"><?php echo $count; ?> <?php pll_e('Results Found'); ?></span>
+            <h1><?php pll_e('Search:'); ?> "<?php echo esc_html($search_query); ?>"</h1>
         </header>
 
-        <div class="results-grid">
-            <?php 
-            global $wpdb; 
-            
-            // 1. On récupère le mot tapé dans la barre
-            $search_query = get_search_query();
-            $current_lang = pll_current_language(); // On récupère la langue actuelle (en, fr, ar)
-
-            // 2. LA REQUÊTE SQL (Full-Text Search)
-            // On cherche dans LA table master_data et on filtre par langue
-            $results = $wpdb->get_results( $wpdb->prepare("
-                SELECT * FROM bk_master_data 
-                WHERE MATCH(title, description) AGAINST(%s)
-                AND lang = %s
-            ", $search_query, $current_lang) );
-
-            // 3. AFFICHAGE DES RÉSULTATS
-            if ( !empty($results) ) :
-                foreach ( $results as $row ) : ?>
+        <div class="results-list-pro">
+            <?php if ( $count > 0 ) : ?>
+                <?php foreach ( $results as $row ) : ?>
                     
-                    <article class="result-item">
-                        <span class="result-cat"><?php echo $row->type; ?></span>
-                        <h3><?php echo $row->title; ?></h3>
-                        <p><?php echo $row->description; ?></p>
-                        <a href="<?php echo home_url() . '/' . $row->url; ?>" class="read-more">
-                                <?php pll_e('Learn More'); ?> &rarr;
-                        </a>
+                    <article class="search-result-entry">
+                        <!-- THE HEADING AS A CLICKABLE LINK  -->
+                        <h3 class="result-title">
+                            <a href="<?php echo home_url() . '/' . $row->url; ?>">
+                                <?php echo $row->title; ?>
+                            </a>
+                        </h3>
+                        <p class="result-snippet"><?php echo $row->description; ?></p>
+                        <span class="result-tag"><?php echo $row->type; ?></span>
                     </article>
 
-                <?php endforeach; 
-            else : 
-                // FALLBACK : Si le Full-Text ne trouve rien, on essaie le LIKE (plus souple)
-                $results_like = $wpdb->get_results( $wpdb->prepare("
-                    SELECT * FROM bk_master_data 
-                    WHERE (title LIKE %s OR description LIKE %s)
-                    AND lang = %s
-                ", '%' . $wpdb->esc_like($search_query) . '%', '%' . $wpdb->esc_like($search_query) . '%', $current_lang) );
-
-                if ( !empty($results_like) ) :
-                    foreach ( $results_like as $row ) : ?>
-                        <article class="result-item">
-                            <span class="result-cat"><?php echo $row->type; ?></span>
-                            <h3><?php echo $row->title; ?></h3>
-                            <p><?php echo $row->description; ?></p>
-                        </article>
-                    <?php endforeach;
-                else : ?>
-                    <!-- MESSAGE SI RIEN N'EST TROUVÉ -->
-                    <div class="no-results">
-                        <p>Désolé, aucun résultat pour "<strong><?php echo $search_query; ?></strong>" en [<?php echo strtoupper($current_lang); ?>].</p>
-                    </div>
-                <?php endif; 
-            endif; ?>
+                <?php endforeach; ?>
+            <?php else : ?>
+                <div class="no-results-msg">
+                    <p><?php pll_e('No results found for'); ?> "<strong><?php echo esc_html($search_query); ?></strong>".</p>
+                    <a href="<?php echo home_url(); ?>" class="btn-back">&larr; <?php pll_e('Back to Home'); ?></a>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </section>

@@ -54,24 +54,34 @@ add_action('init', function() {
     pll_register_string('BK-Media', 'the_title()', 'Portfolio');
     pll_register_string('BK-Media', 'Portfolio Title', 'Portfolio');
     pll_register_string('BK-Media', 'Portfolio Button', 'Portfolio');
-    pll_register_string('BK-Media', 'Work 1 Title', 'Portfolio');
-    pll_register_string('BK-Media', 'Work 1 Cat', 'Portfolio');
-    pll_register_string('BK-Media', 'Work 2 Title', 'Portfolio');
-    pll_register_string('BK-Media', 'Work 2 Cat', 'Portfolio');
-    pll_register_string('BK-Media', 'Work 3 Title', 'Portfolio');
-    pll_register_string('BK-Media', 'Work 3 Cat', 'Portfolio');
-    pll_register_string('BK-Media', 'Work 4 Title', 'Portfolio');
-    pll_register_string('BK-Media', 'Work 4 Cat', 'Portfolio');
-    pll_register_string('BK-Media', 'Work 5 Title', 'Portfolio');
-    pll_register_string('BK-Media', 'Work 5 Cat', 'Portfolio');
+    // Portfolio Works (1-10)
+    for ($i = 1; $i <= 10; $i++) {
+        pll_register_string('BK-Media', "Work $i Title", 'Portfolio');
+        pll_register_string('BK-Media', "Work $i Cat", 'Portfolio');
+    }
+    // pll_register_string('BK-Media', 'Work 1 Title', 'Portfolio');
+    // pll_register_string('BK-Media', 'Work 1 Cat', 'Portfolio');
+    // pll_register_string('BK-Media', 'Work 2 Title', 'Portfolio');
+    // pll_register_string('BK-Media', 'Work 2 Cat', 'Portfolio');
+    // pll_register_string('BK-Media', 'Work 3 Title', 'Portfolio');
+    // pll_register_string('BK-Media', 'Work 3 Cat', 'Portfolio');
+    // pll_register_string('BK-Media', 'Work 4 Title', 'Portfolio');
+    // pll_register_string('BK-Media', 'Work 4 Cat', 'Portfolio');
+    // pll_register_string('BK-Media', 'Work 5 Title', 'Portfolio');
+    // pll_register_string('BK-Media', 'Work 5 Cat', 'Portfolio');
 
 
     // Footer Section
     pll_register_string('BK-Media', 'Footer Contact Title', 'Footer');
     pll_register_string('BK-Media', 'Footer Links Title', 'Footer');
+    pll_register_string('BK-Media', 'Footer text', 'Footer');
     pll_register_string('BK-Media', 'Footer Work With Us', 'Footer');
     pll_register_string('BK-Media', 'Footer Contact mail', 'Footer');
     pll_register_string('BK-Media', 'Footer Contact city', 'Footer');
+
+    pll_register_string('BK-Media', 'Results Found', 'Search');
+    pll_register_string('BK-Media', 'Search:', 'Search');
+    pll_register_string('BK-Media', 'No results found for', 'Search');
    
   }
 });

@@ -149,35 +149,96 @@
     <div class="container">
         <h2 class="section-title" style="color: white;"><?php pll_e('Portfolio Title'); ?></h2>
         <div class="portfolio-grid" id="portfolio-grid">
-            <div class="portfolio-item">
-                <div class="work-thumb" style="background:#222; height: 300px;"></div>
+            <div class="portfolio-item" id="work-01">
+                <video autoplay muted loop playsinline class="work-video">
+                    <source src="<?php echo get_template_directory_uri(); ?>/assets/v1.mp4" type="video/mp4">
+                </video>
                 <div class="work-info">
                     <h4><?php pll_e('Work 1 Title'); ?></h4>
                     <span><?php pll_e('Work 1 Cat'); ?></span>
                 </div>
             </div>
-            <div class="portfolio-item">
-                <div class="work-thumb" style="background:#222; height: 300px;"></div>
+            <div class="portfolio-item" id="work-02">
+                 <video autoplay muted loop playsinline class="work-video">
+                    <source src="<?php echo get_template_directory_uri(); ?>/assets/v2.mp4" type="video/mp4">
+                </video>
                 <div class="work-info">
                     <h4><?php pll_e('Work 2 Title'); ?></h4>
                     <span><?php pll_e('Work 2 Cat'); ?></span>
                 </div>
             </div>
-            <div class="portfolio-item">
-                <div class="work-thumb" style="background:#222; height: 300px;"></div>
+            <div class="portfolio-item" id="work-03">
+                <video autoplay muted loop playsinline class="work-video">
+                    <source src="<?php echo get_template_directory_uri(); ?>/assets/v3.mp4" type="video/mp4">
+                </video>
                 <div class="work-info">
                     <h4><?php pll_e('Work 3 Title'); ?></h4>
                     <span><?php pll_e('Work 3 Cat'); ?></span>
                 </div>
             </div>
             <!-- Hidden items (Will show on click) -->
-            <div class="portfolio-item hidden-item" style="display: none;">
-                <div class="work-thumb" style="background:#333; height: 300px;"></div>
-                <div class="work-info"><h4><?php pll_e('Work 4 Title'); ?></h4><span>Category</span></div>
+            <div class="portfolio-item hidden-item" style="display: none;" id="work-04">
+                <video autoplay muted loop playsinline class="work-video">
+                    <source src="<?php echo get_template_directory_uri(); ?>/assets/v4.mp4" type="video/mp4">
+                </video>
+                <div class="work-info">
+                    <h4><?php pll_e('Work 4 Title'); ?></h4>
+                    <span><?php pll_e('Work 4 Cat'); ?></span>
+                </div>
             </div>
-            <div class="portfolio-item hidden-item" style="display: none;">
-                <div class="work-thumb" style="background:#333; height: 300px;"></div>
-                <div class="work-info"><h4><?php pll_e('Work 5 Title'); ?></h4><span>Category</span></div>
+            <div class="portfolio-item hidden-item" style="display: none;" id="work-05">
+                <video autoplay muted loop playsinline class="work-video">
+                    <source src="<?php echo get_template_directory_uri(); ?>/assets/v5.mp4" type="video/mp4">
+                </video>
+                <div class="work-info">
+                    <h4><?php pll_e('Work 5 Title'); ?></h4>
+                    <span><?php pll_e('Work 5 Cat'); ?></span>
+                </div>
+            </div>
+             <div class="portfolio-item hidden-item" style="display: none;" id="work-06">
+                <video autoplay muted loop playsinline class="work-video">
+                    <source src="<?php echo get_template_directory_uri(); ?>/assets/v6.mp4" type="video/mp4">
+                </video>
+                <div class="work-info">
+                    <h4><?php pll_e('Work 6 Title'); ?></h4>
+                    <span><?php pll_e('Work 6 Cat'); ?></span>
+                </div>
+            </div>
+             <div class="portfolio-item hidden-item" style="display: none;" id="work-07">
+                <video autoplay muted loop playsinline class="work-video">
+                    <source src="<?php echo get_template_directory_uri(); ?>/assets/v7.mp4" type="video/mp4">
+                </video>
+                <div class="work-info">
+                    <h4><?php pll_e('Work 7 Title'); ?></h4>
+                    <span><?php pll_e('Work 7 Cat'); ?></span>
+                </div>
+            </div>
+             <div class="portfolio-item hidden-item" style="display: none;" id="work-08">
+                <video autoplay muted loop playsinline class="work-video">
+                    <source src="<?php echo get_template_directory_uri(); ?>/assets/v8.mp4" type="video/mp4">
+                </video>
+                <div class="work-info">
+                    <h4><?php pll_e('Work 8 Title'); ?></h4>
+                    <span><?php pll_e('Work 8 Cat'); ?></span>
+                </div>
+            </div>
+             <div class="portfolio-item hidden-item" style="display: none;" id="work-09">
+                <video autoplay muted loop playsinline class="work-video">
+                    <source src="<?php echo get_template_directory_uri(); ?>/assets/v9.mp4" type="video/mp4">
+                </video>
+                <div class="work-info">
+                    <h4><?php pll_e('Work 9 Title'); ?></h4>
+                    <span><?php pll_e('Work 9 Cat'); ?></span>
+                </div>
+            </div>
+             <div class="portfolio-item hidden-item" style="display: none;" id="work-10">
+                <video autoplay muted loop playsinline class="work-video">
+                    <source src="<?php echo get_template_directory_uri(); ?>/assets/v10.mp4" type="video/mp4">
+                </video>
+                <div class="work-info">
+                    <h4><?php pll_e('Work 10 Title'); ?></h4>
+                    <span><?php pll_e('Work 10 Cat'); ?></span>
+                </div>
             </div>
         </div>
         <button id="see-more-btn" class="btn" style="margin-top:50px; cursor: pointer;">
