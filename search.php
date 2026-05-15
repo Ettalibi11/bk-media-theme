@@ -12,9 +12,11 @@
         $results = $wpdb->get_results( $wpdb->prepare("
             SELECT * FROM bk_master_data 
             WHERE (title LIKE %s OR description LIKE %s)
-            AND lang = %s
-            ORDER BY title ASC
-        ", '%' . $wpdb->esc_like($search_query) . '%', '%' . $wpdb->esc_like($search_query) . '%', $current_lang) );
+            
+            ORDER BY 
+            CASE WHEN lang = %s THEN 0 ELSE 1 END,
+                title ASC
+                ", '%' . $wpdb->esc_like($search_query) . '%', '%' . $wpdb->esc_like($search_query) . '%', $current_lang) );
 
         // 2. CALCULATE COUNT
         $count = count($results);
@@ -33,12 +35,19 @@
                     <article class="search-result-entry">
                         <!-- THE HEADING AS A CLICKABLE LINK  -->
                         <h3 class="result-title">
-                            <a href="<?php echo home_url() . '/' . $row->url; ?>">
-                                <?php echo $row->title; ?>
+                            <?php
+                            $result_lang = $row->lang;
+                            $target_home = pll_home_url($result_lang);
+                            ?>
+                            <a href="<?php echo $target_home . $row->url; ?>">
+                                <?php echo esc_html($row->title); ?>
                             </a>
                         </h3>
                         <p class="result-snippet"><?php echo $row->description; ?></p>
-                        <span class="result-tag"><?php echo $row->type; ?></span>
+                        <div class="result-meta">
+                            <span class="result-tag"><?php echo esc_html($row->type); ?></span>
+                            <span class="lang-tag"><?php echo strtoupper($row->lang); ?></span>
+                        </div>
                     </article>
 
                 <?php endforeach; ?>

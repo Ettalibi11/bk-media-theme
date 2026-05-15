@@ -3,7 +3,15 @@
             
             <!-- Column 1: Brand -->
             <div class="footer-column brand-col">
-                <a href="<?php echo home_url(); ?>" class="logo">BK<span>MEDIA</span></a>
+                <a href="<?php echo home_url(); ?>" class="logo">
+                    <?php 
+                    $logo_id = get_theme_mod('custom_logo');
+                    if ($logo_id) {
+                        echo wp_get_attachment_image($logo_id, 'full');
+                    } else { ?>
+                        BK<span>MEDIA</span>
+                    <?php } ?>
+                </a>
                 <p><?php pll_e('Footer text'); ?></p>
                 <div class="social-links">
                     <a href="#" style="color:white; margin-right:15px; font-size:1.2rem;"><i class="fab fa-instagram"></i></a>
@@ -56,6 +64,18 @@
             // Hide the button after showing everything
             this.style.display = 'none';
         });
+        document.addEventListener('DOMContentLoaded', function() {
+                const toggle = document.getElementById('mobile-menu-toggle');
+                const header = document.querySelector('header');
+
+                toggle.addEventListener('click', function() {
+                    // This adds/removes a class to the header
+                    header.classList.toggle('nav-active');
+                    
+                    // Optional: Animate the bars into an 'X'
+                    toggle.classList.toggle('is-active');
+                });
+            });
     </script>
 </body>
 </html>

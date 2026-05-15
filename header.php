@@ -13,21 +13,33 @@
         if ( has_custom_logo() ) {
             the_custom_logo();
         } else {
+            // Smart Link: goes to the home of the current language
             echo '<a href="' . pll_home_url() . '">BK<span>MEDIA</span></a>';
         }
         ?>
     </div>
-   <div class="header-right">
+
+    <div class="header-right">
+        <!-- Search Bar -->
         <div class="header-search">
-            <?php get_search_form(); ?> <!-- This calls your searchform.php -->
+            <?php get_search_form(); ?>
         </div>
         
-        <nav>
-            <!-- This will show the menu you create in WordPress Admin -->
+        <!-- Navigation Menu -->
+        <nav id="site-nav">
             <?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
         </nav>    
-         <div class="lang-switcher">
-                <?php pll_the_languages(array('show_flags'=>1,'show_names'=>0)); ?>
+
+        <!-- Flags -->
+        <div class="lang-switcher">
+            <?php pll_the_languages(array('show_flags'=>1,'show_names'=>0)); ?>
+        </div>
+
+        <!-- Hamburger Icon (Hidden on Desktop) -->
+        <div class="menu-toggle" id="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </div>
 </header>

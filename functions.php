@@ -29,6 +29,10 @@ add_action('init', function() {
     pll_register_string('BK Media', 'Hero Subtitle', 'Home');
     pll_register_string('BK Media', 'Hero Button', 'Home');
     pll_register_string('BK Media', 'experience Button', 'Home');
+
+    pll_register_string('BK-Media', 'Results Found', 'Search');
+    pll_register_string('BK-Media', 'Search:', 'Search');
+    pll_register_string('BK-Media', 'No results found for', 'Search');
     // Expertise Section
     pll_register_string('BK-Media', 'Expertise Title', 'Services');
     pll_register_string('BK-Media', 'Expertise Subtitle', 'Services');
@@ -82,6 +86,7 @@ add_action('init', function() {
     pll_register_string('BK-Media', 'Results Found', 'Search');
     pll_register_string('BK-Media', 'Search:', 'Search');
     pll_register_string('BK-Media', 'No results found for', 'Search');
+    pll_register_string('BK-Media', 'Back to Home', 'Search');
    
   }
 });
