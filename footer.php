@@ -14,9 +14,13 @@
                 </a>
                 <p><?php pll_e('Footer text'); ?></p>
                 <div class="social-links">
-                    <a href="#" style="color:white; margin-right:15px; font-size:1.2rem;"><i class="fab fa-instagram"></i></a>
-                    <a href="#" style="color:white; margin-right:15px; font-size:1.2rem;"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" style="color:white; font-size:1.2rem;"><i class="fab fa-youtube"></i></a>
+                    <a href="https://wa.me/212600179992" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/bkmedia_agency" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@bkmediaagency" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/Bkmediaagency" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.tiktok.com/@bkmediaagency" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.linkedin.com/in/bk-media-agency-25280b399" target="_blank"><i class="fab fa-linkedin"></i></a>
+
                 </div>
             </div>
 
@@ -39,43 +43,78 @@
                 <p><?php pll_e('Footer Contact city'); ?></p>
                 <a href="#contact" class="footer-cta"><?php pll_e('Footer Work With Us'); ?>&rarr;</a>
             </div>
-           
-
         </div>
 
-        <div class="footer-bottom links col">
+        <div class="footer-bottom">
             <div class="container">
-    
                 <p>&copy; <?php echo date('Y'); ?> BK MEDIA. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <?php wp_footer(); ?>
+     
     <script>
-        document.getElementById('see-more-btn').addEventListener('click', function() {
-            // Select all hidden items
-            const hiddenItems = document.querySelectorAll('.hidden-item');
-            
-            hiddenItems.forEach(item => {
-                item.style.display = 'block'; // Show the item
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // --- 1. SEE MORE BUTTON LOGIC ---
+        const seeMoreBtn = document.getElementById('see-more-btn');
+        if (seeMoreBtn) {
+            seeMoreBtn.addEventListener('click', function() {
+                const hiddenItems = document.querySelectorAll('.hidden-item');
+                hiddenItems.forEach(item => {
+                    item.style.display = 'block';
+                });
+                this.style.display = 'none';
             });
+        }
 
-            // Hide the button after showing everything
-            this.style.display = 'none';
-        });
-        document.addEventListener('DOMContentLoaded', function() {
-                const toggle = document.getElementById('mobile-menu-toggle');
-                const header = document.querySelector('header');
+        // --- 2. MOBILE MENU LOGIC ---
+        const toggle = document.getElementById('mobile-menu-toggle');
+        const header = document.querySelector('header');
+        if (toggle) {
+            toggle.addEventListener('click', function() {
+                header.classList.toggle('nav-active');
+                toggle.classList.toggle('is-active');
+            });
+        }
 
-                toggle.addEventListener('click', function() {
-                    // This adds/removes a class to the header
-                    header.classList.toggle('nav-active');
-                    
-                    // Optional: Animate the bars into an 'X'
-                    toggle.classList.toggle('is-active');
+        // --- 3. VIDEO POPUP (MODAL) LOGIC ---
+        const modal = document.getElementById('videoModal');
+        const modalVideo = document.getElementById('modalVideo');
+        const closeModal = document.querySelector('.close-modal');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        if (modal && modalVideo) {
+            portfolioItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const videoSource = this.querySelector('video source');
+                    if (videoSource) {
+                        modalVideo.src = videoSource.src;
+                        modal.style.display = 'flex';
+                        modalVideo.load();
+                        modalVideo.play();
+                    }
                 });
             });
-    </script>
+
+            if (closeModal) {
+                closeModal.addEventListener('click', function() {
+                    modal.style.display = 'none';
+                    modalVideo.pause();
+                    modalVideo.src = ""; 
+                });
+            }
+
+            window.addEventListener('click', function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                    modalVideo.pause();
+                    modalVideo.src = "";
+                }
+            });
+        }
+    });
+    </script>   
 </body>
 </html>

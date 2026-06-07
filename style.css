@@ -871,10 +871,17 @@ section { padding: 120px 0; }
    ========================================================================== */
 
 .main-footer {
-    background-color: rgb(178, 177, 182);
-    color: var(--black);
+   background: linear-gradient(180deg, #000000 0%, #0d0628 100%); 
+    color: var(--white); /* Change text to white since background is now dark */
     padding: 100px 0 0 0;
     border-top: 1px solid rgba(255,255,255,0.05);
+}
+.footer-column h5, 
+.footer-column p, 
+.footer-menu li a,
+.footer-bottom p {
+    color: white !important;
+    opacity: 0.8;
 }
 
 .footer-grid {
@@ -891,6 +898,8 @@ section { padding: 120px 0; }
     font-size: 0.9rem;
     margin-bottom: 30px;
     font-weight: 800;
+     opacity: 1;
+    color: var(--light-accent) !important; 
 }
 
 /* Brand Column */
@@ -910,8 +919,8 @@ section { padding: 120px 0; }
 /* Social Links */
 .social-links {
     display: flex;
-    gap: 15px;
-    margin-top: 20px;
+    gap: 20px; /* Space between icons */
+    margin-top: 25px;
 }
 
 .social-links a {
@@ -922,9 +931,9 @@ section { padding: 120px 0; }
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    color: white;
+    color: white !important;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 28px !important;
     transition: 0.3s;
 }
 
@@ -1288,4 +1297,64 @@ section { padding: 120px 0; }
     border-left: none;
     border-right: 4px solid var(--primary);
     border-radius: 15px 0 0 15px;
+}
+/* Video Modal Styles */
+.video-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 10000; /* Above everything else */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Black background with opacity */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    position: relative;
+    width: auto;         /* Allow it to fit the video size */
+    max-width: 90vw;    /* Not wider than 90% of screen */
+    max-height: 80vh;   /* Not taller than 80% of screen */
+    display: flex;
+    justify-content: center;
+    animation: zoomIn 0.3s ease;
+}
+
+
+.modal-content video {
+    max-width: 100%;
+    max-height: 80vh;   /* This is the key to fixing the size */
+    width: auto;        /* Prevents stretching */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    background: #000;   /* Black bars if aspect ratio is weird */
+}
+
+.close-modal {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10001;
+    transition: 0.3s;
+}
+
+.close-modal:hover {
+    color: var(--primary);
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Add a cursor pointer to your portfolio items so people know they can click */
+.portfolio-item {
+    cursor: pointer;
 }

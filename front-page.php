@@ -106,7 +106,7 @@
             <div class="direct-contact">
                 <div class="contact-item">
                     <i class="fab fa-whatsapp"></i>
-                    <span>(+212) 06 97-933388</span>
+                    <span>0600179992</span>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
@@ -150,7 +150,7 @@
         <h2 class="section-title" style="color: white;"><?php pll_e('Portfolio Title'); ?></h2>
         <div class="portfolio-grid" id="portfolio-grid">
             <div class="portfolio-item" id="work-01">
-                <video autoplay muted loop playsinline class="work-video">
+                <video autoplay  loop muted playsinline class="work-video">
                     <source src="<?php echo get_template_directory_uri(); ?>/assets/v1.mp4" type="video/mp4">
                 </video>
                 <div class="work-info">
@@ -159,7 +159,7 @@
                 </div>
             </div>
             <div class="portfolio-item" id="work-02">
-                 <video autoplay muted loop playsinline class="work-video">
+                 <video autoplay  loop muted playsinline class="work-video">
                     <source src="<?php echo get_template_directory_uri(); ?>/assets/v2.mp4" type="video/mp4">
                 </video>
                 <div class="work-info">
@@ -168,7 +168,7 @@
                 </div>
             </div>
             <div class="portfolio-item" id="work-03">
-                <video autoplay muted loop playsinline class="work-video">
+                <video autoplay  loop muted playsinline class="work-video">
                     <source src="<?php echo get_template_directory_uri(); ?>/assets/v3.mp4" type="video/mp4">
                 </video>
                 <div class="work-info">
@@ -178,7 +178,7 @@
             </div>
             <!-- Hidden items (Will show on click) -->
             <div class="portfolio-item hidden-item" style="display: none;" id="work-04">
-                <video autoplay muted loop playsinline class="work-video">
+                <video autoplay  loop muted playsinline class="work-video">
                     <source src="<?php echo get_template_directory_uri(); ?>/assets/v4.mp4" type="video/mp4">
                 </video>
                 <div class="work-info">
@@ -187,7 +187,7 @@
                 </div>
             </div>
             <div class="portfolio-item hidden-item" style="display: none;" id="work-05">
-                <video autoplay muted loop playsinline class="work-video">
+                <video autoplay  loop muted playsinline class="work-video">
                     <source src="<?php echo get_template_directory_uri(); ?>/assets/v5.mp4" type="video/mp4">
                 </video>
                 <div class="work-info">
@@ -196,7 +196,7 @@
                 </div>
             </div>
              <div class="portfolio-item hidden-item" style="display: none;" id="work-06">
-                <video autoplay muted loop playsinline class="work-video">
+                <video autoplay  loop muted playsinline class="work-video">
                     <source src="<?php echo get_template_directory_uri(); ?>/assets/v6.mp4" type="video/mp4">
                 </video>
                 <div class="work-info">
@@ -205,7 +205,7 @@
                 </div>
             </div>
              <div class="portfolio-item hidden-item" style="display: none;" id="work-07">
-                <video autoplay muted loop playsinline class="work-video">
+                <video autoplay  loop muted playsinline class="work-video">
                     <source src="<?php echo get_template_directory_uri(); ?>/assets/v7.mp4" type="video/mp4">
                 </video>
                 <div class="work-info">
@@ -214,7 +214,7 @@
                 </div>
             </div>
              <div class="portfolio-item hidden-item" style="display: none;" id="work-08">
-                <video autoplay muted loop playsinline class="work-video">
+                <video autoplay  loop muted playsinline class="work-video">
                     <source src="<?php echo get_template_directory_uri(); ?>/assets/v8.mp4" type="video/mp4">
                 </video>
                 <div class="work-info">
@@ -223,7 +223,7 @@
                 </div>
             </div>
              <div class="portfolio-item hidden-item" style="display: none;" id="work-09">
-                <video autoplay muted loop playsinline class="work-video">
+                <video autoplay  loop muted playsinline class="work-video">
                     <source src="<?php echo get_template_directory_uri(); ?>/assets/v9.mp4" type="video/mp4">
                 </video>
                 <div class="work-info">
@@ -232,7 +232,7 @@
                 </div>
             </div>
              <div class="portfolio-item hidden-item" style="display: none;" id="work-10">
-                <video autoplay muted loop playsinline class="work-video">
+                <video autoplay  loop muted playsinline class="work-video">
                     <source src="<?php echo get_template_directory_uri(); ?>/assets/v10.mp4" type="video/mp4">
                 </video>
                 <div class="work-info">
@@ -247,4 +247,15 @@
     </div>
 </section>
 
+
+<!-- Video Modal (Popup) -->
+<div id="videoModal" class="video-modal">
+    <span class="close-modal">&times;</span>
+    <div class="modal-content">
+        <video id="modalVideo" controls autoplay>
+            <source src="" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</div>
 <?php get_footer(); ?>
