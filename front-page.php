@@ -31,6 +31,7 @@
                 <div class="card-overlay">
                     <span class="card-no">01</span>
                     <h3><?php pll_e('S1 Title'); ?></h3>
+                    <p><?php pll_e('S1 Desc'); ?></p> <!-- Description for Photography -->
                 </div>
             </div>
            <!-- 02: Video Editing -->
@@ -38,7 +39,7 @@
                 <div class="card-overlay">
                     <span class="card-no">02</span>
                     <h3><?php pll_e('S2 Title'); ?></h3>
-                    <!-- <p>Bringing rhythm and narrative flow to your raw footage.</p> -->
+                    <p><?php pll_e('S2 Desc'); ?></p> <!-- Description for Video Editing -->
                 </div>
             </div>
             <!-- 03: Voice Over -->
@@ -46,7 +47,7 @@
                 <div class="card-overlay">
                     <span class="card-no">03</span>
                     <h3><?php pll_e('S3 Title'); ?></h3>
-                    <!-- <p>Professional narration to give your project a unique identity.</p> -->
+                    <p><?php pll_e('S3 Desc'); ?></p> <!-- Description for Voice Over -->
                 </div>
             </div>
             <!-- 04: Drone -->
@@ -54,7 +55,7 @@
             <div class="card-overlay">
                 <span class="card-no">04</span>
                 <h3><?php pll_e('S4 Title'); ?></h3>
-                <!-- <p>Breathtaking aerial perspectives for a cinematic edge.</p> -->
+                <p><?php pll_e('S4 Desc'); ?></p> <!-- Description for Drone -->
             </div>
         </div>
 
@@ -63,7 +64,7 @@
             <div class="card-overlay">
                 <span class="card-no">05</span>
                 <h3><?php pll_e('S5 Title'); ?></h3>
-                <!-- <p>Strategic storytelling designed for social engagement.</p> -->
+                <p><?php pll_e('S5 Desc'); ?></p> <!-- Description for Content Creation -->
             </div>
         </div>
 
@@ -72,7 +73,7 @@
             <div class="card-overlay">
                 <span class="card-no">06</span>
                 <h3><?php pll_e('S6 Title'); ?></h3>
-                <!-- <p>Dynamic animations that bring your graphic data to life.</p> -->
+                <p><?php pll_e('S6 Desc'); ?></p> <!-- Description for Motion Graphics -->
             </div>
         </div>
 
@@ -81,7 +82,7 @@
             <div class="card-overlay">
                 <span class="card-no">07</span>
                 <h3><?php pll_e('S7 Title'); ?></h3>
-                <!-- <p>Building high-performance digital platforms for premium brands.</p> -->
+                <p><?php pll_e('S7 Desc'); ?></p> <!-- Description for Web Dev -->
             </div>
         </div>
 
@@ -106,13 +107,13 @@
             <div class="direct-contact">
                 <div class="contact-item">
                     <i class="fab fa-whatsapp"></i>
-                    <span>0600179992</span>
+                    <a href="https://wa.me/212600179992" style="color: inherit; text-decoration: none;">06 97-933388</a>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
-                    <span>bkmediaagency2025@gmail.com</span>
+                    <a href="mailto:bkmediaagency2025@gmail.com" style="color: inherit; text-decoration: none;">bkmediaagency2025@gmail.com</a>
                 </div>
-            </div>
+            </div> 
         </div>
            
 

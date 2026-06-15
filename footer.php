@@ -16,7 +16,7 @@
                 <div class="social-links">
                     <a href="https://wa.me/212600179992" target="_blank"><i class="fab fa-whatsapp"></i></a>
                     <a href="https://www.instagram.com/bkmedia_agency" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.youtube.com/@bkmediaagency" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.youtube.com/@bkmediaagency-j3n" target="_blank"><i class="fab fa-youtube"></i></a>
                     <a href="https://www.facebook.com/Bkmediaagency" target="_blank"><i class="fab fa-facebook"></i></a>
                     <a href="https://www.tiktok.com/@bkmediaagency" target="_blank"><i class="fab fa-tiktok"></i></a>
                     <a href="https://www.linkedin.com/in/bk-media-agency-25280b399" target="_blank"><i class="fab fa-linkedin"></i></a>

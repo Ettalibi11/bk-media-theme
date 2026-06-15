@@ -594,17 +594,30 @@ section { padding: 120px 0; }
     color: var(--light-accent);
     margin-bottom: 10px;
 }
+.service-visual-card:hover h3 {
+    transform: translateY(-5px);
+    transition: 0.4s ease;
+}
+
 
 .card-overlay h3 { color: white; font-size: 1.8rem; margin-bottom: 10px; }
 
 .card-overlay p {
-    color: rgba(255,255,255,0.8);
-    font-size: 0.9rem;
+    color: rgba(245, 239, 239, 0.8) !important;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    margin-top: 10px;
     opacity: 0;
     transform: translateY(20px);
-    transition: 0.4s;
+    transition: 0.4s ease;
 }
 
+/* RTL Support for Arabic Text */
+[dir="rtl"] .card-overlay p {
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
 .service-visual-card:hover p { opacity: 1; transform: translateY(0); }
 
 .large-card { grid-column: span 3; height: 300px; }

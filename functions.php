@@ -18,7 +18,7 @@ function bk_media_scripts() {
     wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' );
     
     wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@600;800&display=swap' );
-    wp_enqueue_style( 'main-style', get_stylesheet_uri() );
+    wp_enqueue_style( 'main-style', get_stylesheet_uri(), array(), '1.2' );
 }
 add_action( 'wp_enqueue_scripts', 'bk_media_scripts' );
 
@@ -46,6 +46,9 @@ add_action('init', function() {
     pll_register_string('BK-Media', 'S5 Title', 'Services');
     pll_register_string('BK-Media', 'S6 Title', 'Services');
     pll_register_string('BK-Media', 'S7 Title', 'Services');
+    for ($i = 1; $i <= 7; $i++) {
+    pll_register_string('BK-Media', "S$i Desc", 'Services');
+    }
 
     // Contact Section
     pll_register_string('BK-Media', 'Contact Title1', 'Contact');
