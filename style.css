@@ -359,7 +359,8 @@ section { padding: 120px 0; }
 .hero {
     background: linear-gradient(135deg, #000000 0%, #5E33F4 100%);
     color: var(--white);
-    padding: 60px 5% 100px 5%;
+    padding-left: 7%;
+    padding-right: 0; 
     clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
     min-height: 85vh;
     display: flex;
@@ -370,7 +371,7 @@ section { padding: 120px 0; }
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 50px;
+    gap: 0;
     text-align: left;
     width: 100%;
 }
@@ -378,13 +379,19 @@ section { padding: 120px 0; }
 .hero-content {
     flex: 1;
     max-width: 55%;
+    padding-right: 40px; 
 }
 
 .hero-content h1 {
-    font-size: 5rem;
-    line-height: 0.9;
-    margin-bottom: 20px;
-    letter-spacing: -2px;
+    font-size: 4.2rem;          /* down from 5rem */
+    line-height: 1.0;           /* was 0.9 — a touch more air */
+    letter-spacing: -1.5px;     /* slightly less crunched */
+    font-weight: 800;
+}
+[dir="rtl"] .hero-content h1 {
+    font-size: 4rem;
+    line-height: 1.15;
+    letter-spacing: 0;          /* Arabic doesn't benefit from negative tracking */
 }
 
 .hero h1 span { color: var(--light-accent); }
@@ -398,17 +405,19 @@ section { padding: 120px 0; }
 
 /* Hero Image Column */
 .hero-image {
-    flex: 1;
+     flex: 0 0 auto;
     display: flex;
-    justify-content: center;
     align-items: center;
-    position: relative;
+    justify-content: flex-end;
+    padding-right: 5%;         /* matches the removed .hero right padding */
+    padding-left: 40px;  
 }
 
 .image-frame {
     position: relative;
-    width: 400px;
-    height: 480px;
+    width: 360px;
+    height: 440px;
+    margin: 0;  
     z-index: 2;
 }
 
@@ -884,7 +893,7 @@ section { padding: 120px 0; }
    ========================================================================== */
 
 .main-footer {
-   background: linear-gradient(180deg, #000000 0%, #0d0628 100%); 
+   background: linear-gradient(180deg, #000000 0%, #1d0d5b 100%); 
     color: var(--white); /* Change text to white since background is now dark */
     padding: 100px 0 0 0;
     border-top: 1px solid rgba(255,255,255,0.05);
@@ -1096,60 +1105,97 @@ section { padding: 120px 0; }
 
     /* --- Hero: stack text on top, image below --- */
     .hero {
+    background: linear-gradient(135deg, #000000 0%, #5E33F4 100%);
+    color: var(--white);
+    padding: 60px 5% 80px 5%;
+    min-height: auto;
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
+    display: flex;
+    align-items: space-between;
+    }
+    .hero,
+    [dir="rtl"] .hero {
         padding: 60px 5% 80px 5%;
-        min-height: auto;
-        clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
     }
 
     .hero-flex {
-        flex-direction: column !important;
-        align-items: center;
-        text-align: center;
-        gap: 60px;
+    flex-direction: column !important;
+    align-items: center;
+    text-align: center;
+    gap: 50px;
     }
 
-    .hero-content {
+    .hero-content,
+    [dir="rtl"] .hero-content {
         max-width: 100%;
-        order: 1;
+        padding: 0;
+        text-align: center;
     }
 
-    .hero-content h1 {
-        font-size: 3rem !important;
-        line-height: 1.05;
-        letter-spacing: -1px;
+    .hero-content h1,
+    [dir="rtl"] .hero-content h1 {
+        font-size: 2.8rem !important;
+        line-height: 1.1;
+        letter-spacing: -0.5px;
     }
+    .hero h1 span { color: var(--light-accent); }
 
     .hero p {
-        margin: 0 auto 30px;
+    margin: 0 auto 30px;
     }
 
-    .hero-image {
-        order: 2;
-        width: 100%;
+    /* On mobile both LTR + RTL: image centred below text */
+    .hero-image,
+    [dir="rtl"] .hero-image {
         justify-content: center;
+        padding: 0;
+        width: 100%;
     }
 
     /* Shrink frame, keep proportions */
     .image-frame {
-        width: 280px;
-        height: 340px;
-        margin: 0 auto;
+    width: 280px;
+    height: 340px;
+    margin: 0 auto;
     }
-
-    /* Badge stays bottom-right of the frame */
-    .experience-badge {
-        bottom: -15px;
-        right: -10px;
-        font-size: 0.78rem;
-        padding: 12px 18px;
-        border-radius: 12px;
-        white-space: nowrap;
+    .image-frame img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+    z-index: 3;
+    filter: grayscale(20%);
+    transition: 0.5s;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    display: block;
     }
-
-    /* Halo stays proportional */
+    .image-frame:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.02);
+    }
+ 
+    /* Indigo glow behind photo */
     .image-frame::before {
         top: -15px;
         left: -15px;
+    }
+    [dir="rtl"] .image-frame::before {
+        left: auto;
+        right: -15px;
+    }
+
+    /* Badge stays bottom-right of the frame */
+    .experience-badge,
+    [dir="rtl"] .experience-badge {
+         right: -10px;
+        left: auto;
+        bottom: -15px;
+    }
+
+     [dir="rtl"] .image-frame::before {
+        right: -15px;
+        left: auto;
     }
 
     /* --- Services --- */
@@ -1229,8 +1275,38 @@ section { padding: 120px 0; }
 [dir="rtl"] .footer-grid,
 [dir="rtl"] .contact-grid {
     flex-direction: row-reverse;
+
+}
+[dir="rtl"] .hero {
+    padding-left: 0;
+    padding-right: 7%;
+}
+[dir="rtl"] .hero-content {
+    padding-right: 0;
+    padding-left: 40px;
+    text-align: right;
+}
+[dir="rtl"] .hero-flex {
+    text-align: right;
+}
+[dir="rtl"] .hero-image {
+    justify-content: flex-start;
+    padding-right: 40px;
+    padding-left: 5%;          /* left padding in RTL = right visual gap fix */
 }
 
+[dir="rtl"] .image-frame::before {
+    left: auto;
+    right: -25px; 
+}
+[dir="rtl"] .experience-badge {
+    right: auto;
+    left: -20px; 
+}
+[dir="rtl"] .hero p {
+    margin-right: 0;
+    margin-left: auto;
+}
 [dir="rtl"] header nav {
     margin-right: auto;
     margin-left: 0;
@@ -1370,4 +1446,301 @@ section { padding: 120px 0; }
 /* Add a cursor pointer to your portfolio items so people know they can click */
 .portfolio-item {
     cursor: pointer;
+}
+
+/* the new styles to delete the duplicate latter  */
+
+/* ============================================================
+   BK MEDIA — FINAL POLISH PATCH
+   Paste this at the very BOTTOM of style.css so it overrides
+   everything above cleanly.
+   ============================================================ */
+
+
+/* ────────────────────────────────────────────────────────────
+   1. HERO — IMAGE GAP FIX (LTR + RTL)
+   Root cause: .container has padding: 0 5% on both sides,
+   so the image column never actually reaches the edge.
+   Fix: let .hero manage its own horizontal padding and let
+   the image column escape the container padding on its side.
+   ──────────────────────────────────────────────────────────── */
+
+.hero {
+    padding-left: 7%;
+    padding-right: 0;          /* remove right padding so image reaches edge */
+}
+
+.hero .hero-flex {
+    align-items: center;
+    gap: 0;                    /* we'll control spacing with hero-content margin */
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 52%;
+    padding-right: 40px;       /* breathing room between text and photo */
+}
+
+/* Image column: no flex growth, no inherited container padding */
+.hero-image {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 5%;         /* matches the removed .hero right padding */
+    padding-left: 40px;        /* space from text side */
+}
+
+.image-frame {
+    width: 360px;
+    height: 440px;
+    margin: 0;                 /* kill any inherited margin */
+}
+
+/* ── RTL hero mirror ── */
+[dir="rtl"] .hero {
+    padding-left: 0;
+    padding-right: 7%;
+}
+
+[dir="rtl"] .hero-content {
+    padding-right: 0;
+    padding-left: 40px;
+    text-align: right;
+}
+
+[dir="rtl"] .hero-image {
+    justify-content: flex-start;
+    padding-right: 40px;
+    padding-left: 5%;          /* left padding in RTL = right visual gap fix */
+}
+
+[dir="rtl"] .image-frame::before {
+    left: auto;
+    right: -25px;
+}
+
+[dir="rtl"] .experience-badge {
+    right: auto;
+    left: -20px;
+}
+
+/* Mobile: full reset back to centered column */
+@media (max-width: 768px) {
+    .hero,
+    [dir="rtl"] .hero {
+        padding: 60px 5% 80px 5%;
+    }
+
+    .hero .hero-flex {
+        flex-direction: column !important;
+        gap: 50px;
+        text-align: center;
+    }
+
+    .hero-content,
+    [dir="rtl"] .hero-content {
+        max-width: 100%;
+        padding: 0;
+        text-align: center;
+    }
+
+    .hero-image,
+    [dir="rtl"] .hero-image {
+        justify-content: center;
+        padding: 0;
+        width: 100%;
+    }
+
+    .image-frame {
+        width: 280px;
+        height: 340px;
+        margin: 0 auto;
+    }
+
+    .experience-badge,
+    [dir="rtl"] .experience-badge {
+        right: -10px;
+        left: auto;
+        bottom: -15px;
+    }
+
+    [dir="rtl"] .image-frame::before {
+        right: -15px;
+        left: auto;
+    }
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   2. HERO TYPOGRAPHY — French / long titles less aggressive
+   The h1 uses text-transform:uppercase + 5rem which is brutal
+   for 3-word French headlines. We soften it.
+   ──────────────────────────────────────────────────────────── */
+
+.hero-content h1 {
+    font-size: 4.2rem;          /* down from 5rem */
+    line-height: 1.0;           /* was 0.9 — a touch more air */
+    letter-spacing: -1.5px;     /* slightly less crunched */
+    font-weight: 800;
+}
+
+/* Arabic h1: Cairo font needs more line-height to breathe */
+[dir="rtl"] .hero-content h1 {
+    font-size: 4rem;
+    line-height: 1.15;
+    letter-spacing: 0;          /* Arabic doesn't benefit from negative tracking */
+}
+
+@media (max-width: 768px) {
+    .hero-content h1,
+    [dir="rtl"] .hero-content h1 {
+        font-size: 2.8rem !important;
+        line-height: 1.1;
+        letter-spacing: -0.5px;
+    }
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   3. SERVICES SECTION — RTL grid order fix
+   In RTL, CSS grid renders columns right-to-left so card 01
+   appears on the right visually. We force LTR grid direction
+   and rely on the RTL flex/text already being set.
+   ──────────────────────────────────────────────────────────── */
+
+[dir="rtl"] .services-visual-grid {
+    direction: ltr;             /* grid flows left→right even in Arabic */
+}
+
+[dir="rtl"] .card-overlay {
+    direction: rtl;             /* but text inside stays RTL */
+    text-align: right;
+    align-items: flex-end;
+}
+
+/* Services section white background looks jarring next to
+   the dark hero and dark portfolio. Soften it slightly. */
+.services-section {
+    background-color: #f7f7fa; /* barely-off-white, less harsh than pure white */
+}
+
+/* Section header alignment fix for Arabic */
+[dir="rtl"] .section-header {
+    text-align: right;
+}
+
+[dir="rtl"] .section-title {
+    text-align: right;
+}
+
+[dir="rtl"] .subtitle {
+    text-align: right;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   4. SERVICE CARDS OVERLAY — cleaner gradient
+   The current rgba(94,51,244,0.8) purple wash looks muddy.
+   Replace with a dark-to-indigo that's richer and shows
+   the photo properly until hover.
+   ──────────────────────────────────────────────────────────── */
+
+.card-overlay {
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.15) 40%,
+        rgba(20, 8, 60, 0.92) 100%   /* deep navy-indigo, not flat purple */
+    );
+}
+
+.service-visual-card:hover .card-overlay {
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.05) 0%,
+        rgba(0, 0, 0, 0.5) 40%,
+        rgba(0, 0, 0, 0.95) 100%     /* on hover: pure cinematic dark */
+    );
+}
+
+/* The card number accent color — make it pop against the darker overlay */
+.card-no {
+    color: #a89bff;                  /* lighter lavender, easier to read */
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   5. CONTACT — Send button Arabic fix
+   In Arabic layout the CF7 submit sits full-width left-aligned.
+   We center it and give it the right font.
+   ──────────────────────────────────────────────────────────── */
+
+[dir="rtl"] .wpcf7-submit {
+    float: none !important;          /* kill the float */
+    display: block;
+    margin: 0 auto;                  /* center in its column */
+    min-width: 200px;
+    width: auto !important;
+    font-family: 'Cairo', sans-serif;
+    letter-spacing: 0;               /* Arabic doesn't use letter-spacing */
+    font-size: 1.1rem;
+}
+
+/* Also center the whole form actions wrapper */
+[dir="rtl"] .wpcf7-form .wpcf7-form-control-wrap,
+[dir="rtl"] .wpcf7 form .wpcf7-response-output {
+    text-align: right;
+}
+
+/* The form fields themselves */
+[dir="rtl"] .contact-form-container input,
+[dir="rtl"] .contact-form-container textarea {
+    text-align: right;
+    direction: rtl;
+}
+
+/* ────────────────────────────────────────────────────────────
+   6. PORTFOLIO SECTION — minor polish
+   Work info text alignment in RTL was left-aligned; fix it.
+   ──────────────────────────────────────────────────────────── */
+
+[dir="rtl"] .work-info {
+    text-align: right;
+}
+
+[dir="rtl"] .work-info h4 {
+    font-family: 'Cairo', sans-serif;
+    font-size: 1rem;
+}
+
+/* ────────────────────────────────────────────────────────────
+   7. FOOTER RTL — column order reads more naturally
+   In Arabic the brand should be on the right, contact left.
+   ──────────────────────────────────────────────────────────── */
+
+[dir="rtl"] .footer-grid {
+    direction: rtl;
+}
+
+[dir="rtl"] .footer-column {
+    text-align: right;
+}
+
+[dir="rtl"] .social-links {
+    justify-content: flex-start;    /* icons align right in RTL context */
+}
+
+[dir="rtl"] .footer-links li a:hover {
+    transform: translateX(-8px);    /* slides leftward in RTL */
+}
+
+[dir="rtl"] .footer-cta::after {
+    content: '←';                   /* arrow points left in RTL */
+}
+
+/* "Quick Links" label stays English per screenshot — that's fine,
+   but align it right so it doesn't look floating */
+[dir="rtl"] .footer-column h5 {
+    text-align: right;
 }
